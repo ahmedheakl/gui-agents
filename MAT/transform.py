@@ -42,7 +42,7 @@ for d in tqdm(raw_data):
         
 print(f"Transformed data size: {len(data)} out of {len(raw_data)} {len(data) / len(raw_data) * 100:.2f}%")
 with open("mat_train_transformed.json", "w") as f:  
-    json.dump(data[:100], f, indent=4, ensure_ascii=False)
+    json.dump(data, f, indent=4, ensure_ascii=False)
         
 
 
