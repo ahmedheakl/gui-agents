@@ -44,3 +44,28 @@ print(f"Transformed data size: {len(data)} out of {len(raw_data)} {len(data) / l
 with open("mat_train_transformed.json", "w") as f:  
     json.dump(data[:100], f, indent=4, ensure_ascii=False)
         
+
+
+with open("dataset_info.json", "r") as f:
+    data_info = json.load(f)
+    
+    
+data_info["mat_train"] = {
+    "file_name": "mat_train_transformed.json",
+    "formatting": "sharegpt",
+    "columns": {
+        "messages": "conversations",
+        "images": "images"
+
+    },
+    "tags": {
+        "role_tag": "role",
+        "content_tag": "content",
+        "user_tag": "user",
+        "assistant_tag": "assistant",
+        "system_tag": "system"
+    }
+}
+
+with open("dataset_info.json", "w") as f:   
+    json.dump(data_info, f, indent=4, ensure_ascii=False)
